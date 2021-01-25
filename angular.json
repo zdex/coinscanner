@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "RippleScanner": {
+    "CoinScanner": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/RippleScanner",
+            "outputPath": "dist/CoinScanner",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "RippleScanner:build"
+            "browserTarget": "CoinScanner:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "RippleScanner:build:production"
+              "browserTarget": "CoinScanner:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "RippleScanner:build"
+            "browserTarget": "CoinScanner:build"
           }
         },
         "test": {
@@ -118,16 +118,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "RippleScanner:serve"
+            "devServerTarget": "CoinScanner:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "RippleScanner:serve:production"
+              "devServerTarget": "CoinScanner:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "RippleScanner"
+  "defaultProject": "CoinScanner"
 }
