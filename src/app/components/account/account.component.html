@@ -1,0 +1,16 @@
+<div>
+    <div>
+        <form [formGroup]="accountForm" (ngSubmit)="getAccount()">
+            <mat-form-field class="example-form-field">
+                <mat-label style="margin-left: 10px;"> Enter Account</mat-label>
+                <input matInput type="text" formControlName="accountAddress" style="margin-left: 10px;">
+                <button style="margin-left: 10px;" mat-raised-button color="primary" type="submit">Primary</button>
+            </mat-form-field>
+        </form>
+    </div>
+    
+    Account Result is:
+    <div *ngIf="account">
+        {{account.result}}
+    </div>
+</div>
