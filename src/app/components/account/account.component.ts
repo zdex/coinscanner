@@ -13,11 +13,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class AccountComponent implements OnInit {
 
   account: any;
+
   accountForm = new FormGroup({
     accountAddress: new FormControl('')    
   });
     
-  
+  showVolume: boolean = false;
 
   constructor(private service: RippleService) { }
 
@@ -41,9 +42,11 @@ export class AccountComponent implements OnInit {
         result: "error"
       }
      }
-
     );
+  }
 
+  getVolume() {
+    this.showVolume = true;
   }
 
 }

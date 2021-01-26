@@ -13,4 +13,8 @@
     <div *ngIf="account">
         {{account.result}}
     </div>
+    <div>
+        <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="getVolume()">Volume</button>
+    </div>
+    <app-volume *ngIf="showVolume"></app-volume>
 </div>
