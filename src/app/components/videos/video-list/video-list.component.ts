@@ -19,7 +19,6 @@ export class VideoListComponent implements OnInit {
    }
 
    onVideoSelect(video) {
-     debugger
-    this.videoSelectedClicked.emit(video);
+     this.videoSelectedClicked.emit(video);
    }
 }

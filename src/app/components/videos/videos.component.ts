@@ -61,10 +61,4 @@ export class VideosComponent implements OnInit {
          })
      */
   }
-
-  onVideoSelect(video) {
-    debugger
-    this.selectedVideo = video;
-  }
-
 }
