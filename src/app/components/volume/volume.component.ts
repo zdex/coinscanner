@@ -1,20 +1,11 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { RippleService } from 'src/app/services/ripple.service';
-import { ExchangeVolume, GraphData } from 'src/app/models/accountModels';
+import { ExchangeVolume, GraphData, VolumeRowData } from 'src/app/models/accountModels';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
-export interface RowData {
-  count: number;
-  rate: number;
-  amount: number;
-  base_currency: string;
-  base_issuer: string;
-  counter_currency: string;
-  counter_issuer: string;
-  converted_amount: number;
-}
+
 
 
 @Component({
@@ -24,12 +15,12 @@ export interface RowData {
 })
 export class VolumeComponent implements OnInit {
   exchangeVolume?: ExchangeVolume ;
-  rowData: RowData[] = [];
+  rowData: VolumeRowData[] = [];
   private _items = [];
   graphData: GraphData;
   displayedColumns: string[] = ['Count', 'Rate', 'Amount', 'Base Currency', 'Base Issuer', 'Counter Currency', 'Counter Issuer', 'Converted Amount'];
 
-  dataSource = new MatTableDataSource<RowData>([]);
+  dataSource = new MatTableDataSource<VolumeRowData>([]);
 
   @ViewChild(MatPaginator) paginator?: MatPaginator;
   @ViewChild(MatSort) sort?: MatSort;
@@ -69,7 +60,7 @@ export class VolumeComponent implements OnInit {
   }
 //ETH, BTC, EUR, CNY
   assembleVolumeData(data: any) {
-    let row: RowData; 
+    let row: VolumeRowData; 
     let btcCount = 0;
     let ethCount = 0;
     let eurCount = 0;

@@ -1,0 +1,7 @@
+<div>
+    <app-video-search></app-video-search>
+    <div *ngIf="videoList">
+        <app-video-detail [video]="selectedVideo"></app-video-detail>
+        <app-video-list [videoList]="videoList" (videoSelectedClicked)="onVideoSelect($event)"></app-video-list>
+    </div>
+</div>

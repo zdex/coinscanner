@@ -44,3 +44,24 @@ export interface GraphData {
   EUR: number;
   CNY: number;  
 }
+
+export interface VolumeRowData {
+  count: number;
+  rate: number;
+  amount: number;
+  base_currency: string;
+  base_issuer: string;
+  counter_currency: string;
+  counter_issuer: string;
+  converted_amount: number;
+}
+
+export interface CryptoCurrenciesModel {
+  cmc_rank: number;
+  name: string;
+  symbol: string;
+  circulating_supply: number;
+  total_supply: number;
+  max_supply: number;
+
+}

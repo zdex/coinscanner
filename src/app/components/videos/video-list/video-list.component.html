@@ -1,0 +1,24 @@
+<div>
+    <p>video-list works11</p>
+    <ul>
+        <ng-template *ngIf="videoList.items">
+            {{videoList.items.length}}
+        </ng-template>
+        <span> Size: {{videoList.items.length}}</span>
+        <ul>
+            <div *ngFor="let video of videoList.items; let i = index">
+                <li (click)="onVideoSelect(video)" className="list-group-item">
+                    <div className="video-list media">
+                        <div className="media-left">
+                           <img  *ngIf="video.snippet" className="media-object" src="{{video.snippet.thumbnails.default.url}}"/>
+                        </div>
+                        <div className="media-body">
+                            <div *ngIf="video.snippet" className="media-heading">{{video.snippet.title}}</div>
+                        </div>
+
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </ul>
+</div>

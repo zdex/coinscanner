@@ -11,10 +11,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
-import { HeaderComponent } from './components/header/header/header.component';
-import { LeftpannelComponent } from './components/leftpanel/leftpannel/leftpannel.component';
-import { FooterComponent } from './components/footer/footer/footer.component';
-import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LeftpannelComponent } from './components/leftpanel/leftpannel.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ErrorpageComponent } from './components/error/errorpage/errorpage.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { A11yModule } from '@angular/cdk/a11y';
@@ -57,10 +57,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { VolumeComponent } from './components/volume/volume/volume.component';
-import { GraphComponent } from './components/graph/graph/graph.component';
+import { VolumeComponent } from './components/volume/volume.component';
+import { GraphComponent } from './components/graph/graph.component';
 import {AccordionModule} from 'primeng/accordion';  
 import {ChartModule} from 'primeng/chart';
+import { CryptocurrenciesComponent } from './components/cryptocurrencies/cryptocurrencies.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
+import { WhitepapersComponent } from './components/blogs/whitepapers/whitepapers.component';
+import { BlogcategoriesComponent } from './components/blogs/blogcategories/blogcategories.component';
+import { VideoSearchComponent } from './components/videos/video-search/video-search.component';
+import { VideosComponent } from './components/videos/videos.component';
+import { VideoListComponent } from './components/videos/video-list/video-list.component';
+import { VideoDetailComponent } from './components/videos/video-detail/video-detail.component';
+
+
 
 @NgModule({
   declarations: [
@@ -73,6 +83,16 @@ import {ChartModule} from 'primeng/chart';
     ErrorpageComponent,
     VolumeComponent,
     GraphComponent,
+    CryptocurrenciesComponent,
+    BlogsComponent,
+    WhitepapersComponent,
+    BlogcategoriesComponent,
+    VideoSearchComponent,
+    VideosComponent,
+    VideoListComponent,
+    VideoDetailComponent,
+    
+    
 
   ],
   imports: [
