@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-video-detail',
   templateUrl: './video-detail.component.html',
-  styleUrls: ['./video-detail.component.scss']
+  styleUrls: ['./video-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class VideoDetailComponent implements OnInit {
 

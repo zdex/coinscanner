@@ -1,10 +1,10 @@
-<div className="video-detail col-md-8">
+<div class="video-detail" className="col-md-5">
     <div className="embed-responsive embed-responsive-16by9">
         <iframe className="embed-responsive-item" [src]="sanitizeURL()"></iframe>
     </div>
-    <div className="detail">
-        <div>{{video.title}}</div>
-        <div>{{video.description}}</div>
+    <div className="details">
+        <div>Title: {{video.snippet.title}}</div>
+        <div>Description: {{video.snippet.description}}</div>
 
     </div>
 </div>

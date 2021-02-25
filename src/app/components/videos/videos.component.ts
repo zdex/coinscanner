@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { YoutubeDataAPI } from 'youtube-v3-api';
 import { RippleService } from 'src/app/services/ripple.service';
+import {debounce} from 'lodash';
+import * as _ from 'lodash';
 
-//const APO_KEY = 'AIzaSyDnJgwMIIXUgrwlWcIsA2LAQBVmdIE4UJ4'; //gmaheshwari2006
-const APO_KEY ='AIzaSyBVoQJbbdXjzx9AuwPId7rH__v-qvK0iTE' //gauravautumn
+const APO_KEY = 'AIzaSyDnJgwMIIXUgrwlWcIsA2LAQBVmdIE4UJ4'; //gmaheshwari2006
+//const APO_KEY ='AIzaSyBVoQJbbdXjzx9AuwPId7rH__v-qvK0iTE' //gauravautumn
 
 @Component({
   selector: 'app-videos',
@@ -17,7 +19,7 @@ export class VideosComponent implements OnInit {
   selectedVideo: any;
 
   constructor(private service: RippleService) {
-    this.searchByKeyword();
+    this.searchByKeyword("blockchain");
   }
 
   ngOnInit(): void {
@@ -37,10 +39,13 @@ export class VideosComponent implements OnInit {
      }
    */
   }
+  searchVideo(term) {
+    //this.searchByKeyword(term);
+    _.debounce(this.searchByKeyword(term), 1000);
+  }
+  searchByKeyword(term) {
 
-  searchByKeyword() {
-
-    this.service.getYoutubeSearchList("part=snippet&q=ripple&type=video&key=" + APO_KEY).subscribe(data => {
+    this.service.getYoutubeSearchList("part=snippet&q="+term+"&type=video&key=" + APO_KEY).subscribe(data => {
       console.log("data from getYoutubeSearchList: " + JSON.stringify(data));
       this.videoList = data;
       this.selectedVideo = this.videoList.items[0];
@@ -61,4 +66,6 @@ export class VideosComponent implements OnInit {
          })
      */
   }
+
+
 }

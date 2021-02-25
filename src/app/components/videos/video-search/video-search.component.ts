@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -7,16 +7,21 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./video-search.component.scss']
 })
 export class VideoSearchComponent implements OnInit {
+  @Output() onSearchVideo : EventEmitter<any> = new EventEmitter();
   searchForm = new FormGroup({
-    searchVideo: new FormControl('')    
+    searchVideo: new FormControl('')
   });
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
-  searchVideo(){
 
+  searchVideo() {
+    this.onSearchVideo.emit(this.searchForm.value.searchVideo);
+  } 
+
+  searchVideoOnChange(event) {
+    this.onSearchVideo.emit(event.target.value);
   }
 }

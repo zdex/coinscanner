@@ -1,11 +1,13 @@
-<div>
-    <div>
-        <form [formGroup]="searchForm" (ngSubmit)="searchVideo()">
-            <mat-form-field class="example-form-field">
-                <mat-label style="margin-left: 10px;"> Search</mat-label>
-                <input matInput type="text" formControlName="searchVideo" style="margin-left: 10px;">
-                <button style="margin-left: 10px;" mat-raised-button color="primary" type="submit">Search</button>
-            </mat-form-field>
-        </form>
-    </div>
+<div class="search-bar">
+    <form [formGroup]="searchForm" (ngSubmit)="searchVideo()">
+        <mat-form-field class="example-form-field">
+            <mat-label style="margin-left: 10px;"> Search</mat-label>
+            <input class="search-bar-input" matInput type="text" formControlName="searchVideo"
+                style="margin-left: 10px;" (change)="searchVideoOnChange($event)">
+            <div>
+                <button style="margin-left: 10px;margin-top: 20px;" mat-raised-button color="primary"
+                    type="submit">Search</button>
+            </div>
+        </mat-form-field>
+    </form>
 </div>
