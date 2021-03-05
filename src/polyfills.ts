@@ -57,9 +57,17 @@
 /***************************************************************************************************
  * Zone JS is required by default for Angular itself.
  */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
-
-
+import 'zone.js/dist/zone'; // Included with Angular CLI.
+//import { Buffer } from "buffer"
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+var Buffer = require('buffer/').Buffer
+declare var require: any;
+declare var global: any;
+(window as any).process = {
+  env: { DEBUG: undefined },
+  version: ''
+};
+(window as any).global = window;
+global.Buffer = global.Buffer || require('buffer/').Buffer;

@@ -4,8 +4,8 @@ import { RippleService } from 'src/app/services/ripple.service';
 import {debounce} from 'lodash';
 import * as _ from 'lodash';
 
-const APO_KEY = ''; //gmaheshwari2006
-//const APO_KEY ='' //gauravautumn
+const APO_KEY = 'AIzaSyDnJgwMIIXUgrwlWcIsA2LAQBVmdIE4UJ4'; //gmaheshwari2006
+//const APO_KEY ='AIzaSyBVoQJbbdXjzx9AuwPId7rH__v-qvK0iTE' //gauravautumn
 
 @Component({
   selector: 'app-videos',

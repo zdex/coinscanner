@@ -69,7 +69,7 @@ import { VideoSearchComponent } from './components/videos/video-search/video-sea
 import { VideosComponent } from './components/videos/videos.component';
 import { VideoListComponent } from './components/videos/video-list/video-list.component';
 import { VideoDetailComponent } from './components/videos/video-detail/video-detail.component';
-
+import { WindowRefService } from './services/window-ref.service';
 
 
 @NgModule({
@@ -155,7 +155,7 @@ import { VideoDetailComponent } from './components/videos/video-detail/video-det
     ChartModule,
     
   ],
-  providers: [],
+  providers: [WindowRefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

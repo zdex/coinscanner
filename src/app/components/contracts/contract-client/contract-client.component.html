@@ -1,0 +1,23 @@
+<div>
+  <h2>Lottery Contract</h2>
+  <p>
+    This contract is managed by {{ manager }}. There are currently
+    {{ playersCount }} people in the pool, competing to win
+    {{ contractBalance }}
+    ether!
+  </p>
+  <hr />
+
+  
+    <h4>Want to try your luck?</h4>
+    <div>
+      <label>Each lottery ticket costs exactly 1 Ether.</label>
+    </div>
+    <button (click)="onSubmit($event)">Enter</button>
+  
+
+  <hr />
+  <h4>Ready to pick a winner?</h4>
+  <button (click)="pickWinner($event)">Pick a winner!</button>
+  <hr />
+</div>

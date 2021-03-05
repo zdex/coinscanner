@@ -13,7 +13,7 @@ export class LeftpannelComponent {
 
   mobileQuery: MediaQueryList;
 
-  fillerNav =  ['account', 'cryptocurrencies', 'blogs', 'Videos']
+  fillerNav =  ['account', 'cryptocurrencies', 'blogs', 'Videos', 'contracts']
 
   private _mobileQueryListener: () => void;
 
@@ -25,7 +25,11 @@ export class LeftpannelComponent {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  selectNav(nav:string) {
-    this.router.navigate(['/'+nav]);
+  selectNav(nav:string) {    
+    if(nav === "contracts") {
+      this.router.navigate(['/'+nav+"/client"]);
+    }else {
+      this.router.navigate(['/'+nav]);
+    }
   }
 }

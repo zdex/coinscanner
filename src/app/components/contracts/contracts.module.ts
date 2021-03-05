@@ -2,14 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ContractsRoutingModule } from './contracts-routing.module';
-import { ContractsComponent } from './contracts.component';
 
+import { ContractClientComponent } from './contract-client/contract-client.component';
+//import {TransferService} from './contractServices/transfer.service';
 
 @NgModule({
-  declarations: [ContractsComponent],
+  declarations: [ContractClientComponent],
   imports: [
     CommonModule,
     ContractsRoutingModule
-  ]
+  ],
+  providers: []
 })
 export class ContractsModule { }
