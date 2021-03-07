@@ -11,15 +11,14 @@ const tokenAbi = require('../contractUtils/abi.json');
   providedIn: 'root',
 })
 export class LotteryService implements OnInit {
-  private _account: string = null;
-  private _web3: any;
-  private _accountsList: any;
+  
   private _tokenContract: any;
   //private _tokenContractAddress: string =    '0x4F07A2a6aE9aDD75A1986B659BD3B7902D072F87'; // ganache contract
   private _tokenContractAddress: string =  '0x9e4C385394CB81d34342FaD3cFfD7e4ac5d98d2c'; //rinkeby
+  // npm install --save ethers@4.0.47
   private abi = tokenAbi;
   private manager;
-  private contractBalance: number;
+  private contractBalance;
   private provider;
   private wallet;
   private signer;
@@ -33,16 +32,12 @@ export class LotteryService implements OnInit {
     //this.provider = new providers.Web3Provider(window.ethereum)
     this.signer = this.provider.getSigner();
     network = (this.provider.getNetwork()).chainId
-    
-    const accts = this.provider.listAccounts();
- 
     this._tokenContract = new ethers.Contract(
       this._tokenContractAddress,
       this.abi,
       this.signer
     );
-    }
-   
+    } 
 
    
     this.wallet = this.provider.getSigner(0);
@@ -52,11 +47,15 @@ export class LotteryService implements OnInit {
   }
 
   ngOnInit(): void {}
-  async findContractBalance(): Promise<Number> {
-    
+  async findContractBalance(): Promise<string> {
+    //this.contractBalance = await this._tokenContract.contractBalance();
+//another way to find the contract balance    
     this.contractBalance = await this.provider.getBalance(
       this._tokenContract.address
     );
+    debugger
+    
+    this.contractBalance = ethers.utils.formatEther(this.contractBalance);
     console.log('Contract Balance: ' + this.contractBalance);
     return this.contractBalance;
   }
@@ -95,5 +94,17 @@ export class LotteryService implements OnInit {
     const count = await this._tokenContract.totalPlayersEntered();
     
     return count;
+  }
+
+  public async getWinnerAddress(): Promise<any> {
+    const winnderAddress = await this._tokenContract.winnderPlayer()
+    console.log("winnderAddress: " + winnderAddress);
+    return winnderAddress;
+  }
+
+  public async getWinnerAddressIndex(): Promise<any> {
+    const winnderAddressIndex = await this._tokenContract.winnderPlayerIndex()
+    console.log("winnderAddressIndex: " + winnderAddressIndex);
+    return winnderAddressIndex;
   }
 }

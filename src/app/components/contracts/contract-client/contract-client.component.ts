@@ -10,9 +10,12 @@ import { LotteryService } from '../contractServices/lottery.service';
 export class ContractClientComponent implements OnInit {
   
   constructor(private service: LotteryService) {}
-  contractBalance: any;
+  contractBalance: string;
   manager;
   playersCount;
+  winnerAddress;
+  winnerAddressIndex;
+
   ngOnInit(): void {
     //this.service.getUserBalance().then(balance => this.balance = balance);
     //this.service.setupManager();
@@ -37,10 +40,12 @@ export class ContractClientComponent implements OnInit {
     this.service.enterPlayer();    
   }
  
-  pickWinner(e) {
+  async pickWinner(e) {
     e.preventDefault();
     debugger
     this.service.pickWinner();    
+    this.winnerAddress = await this.service.getWinnerAddress();
+    this.winnerAddressIndex = await this.service.getWinnerAddressIndex();
   };
 
   async getPlayersCount() {
@@ -48,5 +53,10 @@ export class ContractClientComponent implements OnInit {
     this.playersCount = await this.service.getPlayersCount();
     
     console.log("count: "+ this.playersCount);
+  }
+
+  async findWinner() {
+    this.winnerAddress = await this.service.getWinnerAddress();
+    this.winnerAddressIndex = await this.service.getWinnerAddressIndex();
   }
 }

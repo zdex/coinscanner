@@ -24,7 +24,7 @@
     "@angular/router": "~11.1.0",
     "@truffle/contract": "^4.3.8",
     "chart.js": "^2.9.4",
-    "ethers": "^4.0.47",
+    "ethers": "^4.0.48",
     "ganache-cli": "^6.12.2",
     "lodash": "^4.17.21",
     "mocha": "^8.3.0",
