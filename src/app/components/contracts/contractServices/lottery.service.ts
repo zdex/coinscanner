@@ -66,17 +66,12 @@ export class LotteryService implements OnInit {
     return this.manager;
   }
 
-  public async enterPlayer() {
-    debugger
-    const s = this.provider.getSigner(1);
-    const add = s.address;
-    const e = ethers.utils.parseEther('2.0');
-    const add1 = await this.signer.getAddress();
+  public async enterPlayer() {const add1 = await this.signer.getAddress();
     console.log("this.wallet address: " + add1);
     await this._tokenContract.enter(add1, {
-      value: e
+      value: ethers.utils.parseEther('2.0')
     });
-    debugger
+    
     console.log("player is entered");
   }
   public async pickWinner() {
