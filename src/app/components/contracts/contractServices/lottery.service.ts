@@ -1,6 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import Web3 from 'web3';
-import { ethers, providers } from 'ethers';
+import { ethers } from 'ethers';
 import { WindowRefService } from 'src/app/services/window-ref.service';
 declare let require: any;
 declare let window: any;
@@ -29,7 +28,7 @@ export class LotteryService implements OnInit {
       window.ethereum.enable();
       this.provider = new ethers.providers.Web3Provider(window.ethereum);
       //this.provider = new ethers.providers.JsonRpcProvider("http://localhost:8500")
-      //this.provider = new providers.Web3Provider(window.ethereum)
+   
       this.signer = this.provider.getSigner();
       network = this.provider.getNetwork().chainId;
       this._tokenContract = new ethers.Contract(
